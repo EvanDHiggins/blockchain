@@ -2,18 +2,6 @@
 #include "blockchain.hpp"
 #include "picosha2.h"
 
-namespace sha = picosha2;
-
-void f() {
-    uint64_t nonce = 0;
-    Sha256 hash = {};
-    while(!valid_hash(hash)) {
-        ++nonce;
-        Block b("Hello, world!", nonce, Sha256{});
-        hash = b.GetHash();
-    }
-}
-
 uint64_t mine_nonce(const BlockChain & blockChain, const std::string & data)
 {
     uint64_t nonce = 0;
